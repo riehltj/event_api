@@ -1,0 +1,32 @@
+<div class="max-w-md mx-auto p-6 bg-bark-500 shadow-lg rounded-md backdrop-blur-md mt-20">
+  <h2 class="text-3xl font-bold text-center text-white mb-6">Create Account</h2>
+  <%= form_with(url: account_registration_path, method: :post, local: true, class: 'space-y-4') do |f| %>
+    <div>
+      <%= f.label :username, class: 'block text-sm font-medium text-white' %>
+      <%= f.text_field :username, autofocus: true, class: 'mt-1 block w-full px-3 py-2 border border-black rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 bg-emerald-50' %>
+    </div>
+
+    <div>
+      <%= f.label :email, class: 'block text-sm font-medium text-white' %>
+      <%= f.email_field :email, class: 'mt-1 block w-full px-3 py-2 border border-black rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 bg-emerald-50' %>
+    </div>
+
+    <div>
+      <%= f.label :password, class: 'block text-sm font-medium text-white' %>
+      <%= f.password_field :password, autocomplete: 'new-password', class: 'mt-1 block w-full px-3 py-2 border border-black rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 bg-emerald-50' %>
+    </div>
+
+    <div>
+      <%= f.label :password_confirmation, class: 'block text-sm font-medium text-white' %>
+      <%= f.password_field :password_confirmation, autocomplete: 'new-password', class: 'mt-1 block w-full px-3 py-2 border border-black rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 bg-emerald-50' %>
+    </div>
+
+    <div>
+      <%= f.submit 'Sign Up', class: 'w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500', data: { turbo: false } %>
+    </div>
+
+    <div class="text-center">
+      <p class="text-sm text-white">Already have an account? <%= link_to 'Log in', new_account_session_path, class: 'text-emerald-500 hover:text-emerald-400' %></p>
+    </div>
+  <% end %>
+</div>
